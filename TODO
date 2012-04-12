@@ -1,0 +1,2 @@
+- FIX the bug that concatenates words at the end of a line in vim with the word
+  at the start of the next line, leaving no space.
