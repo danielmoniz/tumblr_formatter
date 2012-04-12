@@ -45,7 +45,7 @@ def starts_with_bullet(line):
 lines = from_file.readlines()
 del lines[:2]
 
-current_line = ""
+current_line_list = []
 line_num = 2
 for line in lines:
     line_num += 1
@@ -53,18 +53,20 @@ for line in lines:
     #print line_num, line
     # If a newline after we've stored content, print everything so far into one
     # line.
-    if line == "\n" and len(current_line) > 0:
-        to_file.write(current_line + "\n")
-        current_line = ""
+    if line == "\n" and len(current_line_list) > 0:
+        text = " ".join(current_line_list) + "\n"
+        to_file.write(text)
+        del current_line_list[:]
     # If a line starts with a bullet, let it have its own line.
     elif starts_with_bullet(line):
         to_file.write(line)
     # Otherwise, simply gather the current line for later writing.
     else:
-        current_line += remove_newline(line)
+        current_line_list.append(remove_newline(line))
 
 # Add any remaining lines
-to_file.write(current_line)
+text = " ".join(current_line_list)
+to_file.write(text)
 
 from_file.close()
 to_file.close()
