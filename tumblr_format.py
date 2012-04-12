@@ -1,5 +1,4 @@
 import sys
-#import os
 
 # Get file from argument
 filename = sys.argv[1]
@@ -14,11 +13,8 @@ def starts_with_numbered_bullet(line):
     """Returns True if the line begins with a numbered bullet, False
     otherwise."""
     line = line.strip()
-    if len(line) < 2:
-        return False
-    if line[0].isdigit():
+    if line[:1].isdigit():
         for char in line[1:]:
-            pass
             # Keep searching until a non-digit is found. If not a digit, only
             # the '.' character is acceptable. Otherwise, return False.
             if char.isdigit():
