@@ -1,1 +1,2 @@
-- 
+- allow a single letter after the numbered bullet integer.
+    - Eg. "34b." should be a valid bullet.
