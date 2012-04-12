@@ -1,0 +1,17 @@
+A simple Python script to take blogs written in Vim and turn them into a
+format that looks desirable on Tumblr. Namely, the spacing is off if I simply
+copy and paste my max-80-char-line vim blog entries right into Tumblr. What is
+looks nice on Tumblr is not readable to me in Vim.
+
+Effect:
+Takes a file, say "blog_entry", formats it, and creates a new file called
+"blog_entry.tumblr". This can then be copied directly into a Tumblr textarea.
+
+ASSUMES:
+- The top two lines are used for a title and a newline.
+- Bullets use '-', '+', or '*'
+
+Future additions:
+- A script that reverses this process. I should be able to make an edit in
+  Tumblr and change my local files accordingly without directly modifying the
+original.
